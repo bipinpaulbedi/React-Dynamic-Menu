@@ -1,11 +1,14 @@
 import React from 'react';
 import Menu from './Menu/Menu'
 import { BrowserRouter } from 'react-router-dom';
+import Breadcrumb from './Breadcrumb/Breadcrumb';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <Breadcrumb />
       <Menu items={items} />
+
     </BrowserRouter>
   );
 }
