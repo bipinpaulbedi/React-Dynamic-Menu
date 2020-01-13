@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Menu from './Menu/Menu'
+import { BrowserRouter } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Menu items={items} />
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+const items = [
+  { name: 'home', label: 'Home' },
+  {
+    name: 'billing',
+    label: 'Billing',
+    items: [
+      { name: 'statements', label: 'Statements' },
+      { name: 'reports', label: 'Reports' },
+    ],
+  },
+  {
+    name: 'settings',
+    label: 'Settings',
+    items: [
+      { name: 'profile', label: 'Profile' },
+      { name: 'insurance', label: 'Insurance' },
+      {
+        name: 'notifications',
+        label: 'Notifications',
+        items: [
+          { name: 'email', label: 'Email' },
+          {
+            name: 'desktop',
+            label: 'Desktop',
+            items: [
+              { name: 'schedule', label: 'Schedule' },
+              { name: 'frequency', label: 'Frequency' },
+            ],
+          },
+          { name: 'sms', label: 'SMS' },
+        ],
+      },
+    ],
+  },
+]
